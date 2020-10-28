@@ -22,8 +22,8 @@ def tap(x, y):
     if not inside(ball):
         ball.x = -199
         ball.y = -199
-        speed.x = (x + 200) / 25
-        speed.y = (y + 200) / 25
+        speed.x = (x + 450) / 15
+        speed.y = (y + 450) / 15
 
 def inside(xy):
     "Return True if xy within screen."
@@ -51,10 +51,10 @@ def move():
         targets.append(target)
 
     for target in targets:
-        target.x -= 0.5
+        target.x -= 0.5*5
 
     if inside(ball):
-        speed.y -= 0.35
+        speed.y -= 0.35*5
         ball.move(speed)
 
     dupe = targets.copy()
@@ -65,10 +65,10 @@ def move():
             targets.append(target)
 
     draw()
-
-    for target in targets:
+# esto comando hacia que terminara el juego si una bolita llegaba al final
+    '''for target in targets:
         if not inside(target):
-            return
+            return'''
 
     ontimer(move, 50)
 
